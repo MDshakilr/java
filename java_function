@@ -1,0 +1,58 @@
+public class function {
+     public static void main(String[] args) {
+
+         System.out.println("hi");
+         greetUser();
+         System.out.println("hello");
+         greetUser();
+         star();
+
+
+     }
+
+        public  static void greetUser(){
+            System.out.println("hello my ...");
+
+
+
+
+        }
+
+
+        public static void star(){
+
+            System.out.println("*");
+            System.out.println("**");
+            System.out.println("***");
+            System.out.println("****");
+
+
+
+
+
+
+        }
+
+
+
+
+
+  
+import java.util.Scanner;
+
+public class function2 {
+    public static void main(String[] args) {
+        int firstnum = num();
+        int secondnum = num();
+        int sum = firstnum + secondnum;
+        System.out.print(sum);
+    }
+
+    public static int num() {
+        Scanner hi = new Scanner(System.in);
+        System.out.print("enter number:");
+        int a = hi.nextInt();
+        return a;
+    }
+}
+}
