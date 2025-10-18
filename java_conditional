@@ -65,4 +65,53 @@ public class logicaloperator {
 }
 
 
+import java.util.Scanner;
 
+public class conditional_statement {
+
+  public  static void main(String[] args) {
+      Scanner num= new Scanner(System.in);
+      System.out.print("enter a intrger nuber:");
+      int a= num.nextInt();
+      System.out.print("enter a intrger nuber:");
+      int b= num.nextInt();
+      if(a>b)
+      {
+          System.out.print("hi");
+
+      }
+      else if(b>a)
+      {
+          System.out.print("hello");
+
+      }
+      else
+      {
+          System.out.print("Equal");
+
+      }
+
+  }
+}
+
+//odd and even
+
+import java.util.Scanner;
+
+public class CS_2 {
+    static void main(String[] args) {
+        Scanner check = new Scanner(System.in);
+        System.out.print("enter:");
+        int x = check.nextInt();
+
+        if (x % 2 == 0) {
+
+System.out.print("even");
+
+        }
+        else {
+            System.out.print("odd");
+
+        }
+    }
+}
