@@ -1,0 +1,68 @@
+//prime number
+import java.util.Scanner;
+
+    public class prime_number {
+        public static void main(String[] args) {
+            Scanner input = new Scanner(System.in);
+
+            System.out.print("Enter a number: ");
+            int num = input.nextInt();
+
+            boolean isPrime = true;
+
+            if (num <= 1)
+            {
+                isPrime = false;
+            }
+            else
+            {
+
+                for (int i = 2; i < num; i++) {
+                    if (num % i == 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+            }
+
+
+            if (isPrime) {
+                System.out.println(num + " is a Prime number.");
+            } else {
+                System.out.println(num + " is not a Prime number.");
+            }
+
+            input.close();
+        }
+    }
+
+
+
+
+
+
+
+
+import java.util.Scanner;
+
+public class logicaloperator {
+
+   public static void main(String[] args) {
+        Scanner vote= new Scanner(System.in);
+        System.out.print("enter your age:");
+        int age=vote.nextInt();
+        System.out.print("are you citizen:");
+                boolean citizen= vote.nextBoolean();
+        if(age>=18 && citizen == true)
+        {
+            System.out.println("You are eligible to vote.");
+        } else
+        {
+            System.out.println("You are not eligible to vote.");
+        }
+
+    }
+}
+
+
+
