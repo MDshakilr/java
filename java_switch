@@ -23,3 +23,63 @@
     }
 
 
+
+
+import java.util.Scanner;
+
+    public class sc2 {
+        public static void main(String[] args) {
+            Scanner grade = new Scanner(System.in);
+            System.out.print("Enter your mark: ");
+            int mark = grade.nextInt();
+
+            switch (mark / 10) {
+                case 10:
+                case 9:       // 90-100
+                    System.out.println("A+");
+                    break;
+                case 8:       // 80-89
+                    System.out.println("A");
+                    break;
+                case 7:       // 70-79
+                    System.out.println("B");
+                    break;
+                case 6:       // 60-69
+                    System.out.println("C");
+                    break;
+                case 5:       // 50-59
+                    System.out.println("D");
+                    break;
+                default:      // 0-49
+                    System.out.println("Fail");
+            }
+        }
+    }
+/*
+import java.util.Scanner;
+
+public class GradeIfElse {
+    public static void main(String[] args) {
+        Scanner grade = new Scanner(System.in);
+        System.out.print("আপনার মার্ক লিখুন: ");
+        float mark = grade.nextFloat();  // float ব্যবহার করলে decimal মার্কও হবে
+
+        if (mark >= 90 && mark <= 100) {
+            System.out.println("A+");
+        } else if (mark >= 80) {
+            System.out.println("A");
+        } else if (mark >= 70) {
+            System.out.println("B");
+        } else if (mark >= 60) {
+            System.out.println("C");
+        } else if (mark >= 50) {
+            System.out.println("D");
+        } else if (mark >= 0) {
+            System.out.println("Fail");
+        } else {
+            System.out.println("Invalid mark");
+        }
+    }
+}
+
+ */
