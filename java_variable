@@ -1,0 +1,41 @@
+public class variable {
+    public static void main(String[] args)
+    {
+        int x=5;
+        System.out.println(x);
+        int myNum = 5;
+        float myFloatNum = 5.99f;
+        char myLetter = 'D';
+        boolean myBool = true;
+        String myText = "Hello";
+        System.out.println(myLetter);
+        boolean i=true;
+        System.out.println(i);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+  
+import java.util.Scanner;
+
+public class varable_2 {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("enter a  integer number:");
+        int x = input.nextInt();
+        System.out.print("enter another integer:");
+        int y=input.nextInt();
+        int sum=x+y;
+        System.out.print(sum);
+
+    }
+}
