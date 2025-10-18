@@ -1,0 +1,19 @@
+
+
+
+      
+public class escape {
+    public static void main(String[] args) {
+     System.out.print("shakil \n rana");
+        System.out.println("shakil \trana");
+        System.out.println("shakil \b rana");
+
+        System.out.println("shakil \\ rana\\");
+        System.out.println("shakil \'hi\' rana");
+        System.out.print("shakil\"hi\"rana");
+    }
+
+
+}
+
+
