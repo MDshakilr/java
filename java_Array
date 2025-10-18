@@ -1,0 +1,22 @@
+public class array1 {
+
+   public static void main(String[] args) {
+        int []num={2,4,5,6};
+        for(int i=0;i<=3;i++)//  for(int i=0;i<num.length;i++)
+        {
+            System.out.println(num[i]);
+        }
+       String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+        for(int i=0;i<cars.length;i++)
+       {
+           System.out.println(cars[i]);
+       }
+int[] h={4,6,7,8,9};
+        System.out.println(h.length);
+       int[][] myNumbers = { {1, 4, 2}, {3, 6, 8} };
+       System.out.println(myNumbers[1][2]);
+
+
+
+   }
+}
