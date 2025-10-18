@@ -1,0 +1,98 @@
+public class operator {
+
+    public static void main(String[] args) {
+        //assignment operator
+        int a=3;
+        int b=4;
+        //int sum =a+b;
+       // System.out.print(sum);
+//swap code
+        int temp=a;
+         a=b;
+         b= temp;
+
+        System.out.println( "a="+a);
+        System.out.println(b);
+
+
+
+        //Arithmetic operator
+        System.out.println("sum=" + (a+b));
+        System.out.println("sub=" + (a-b));
+
+        System.out.println("mul=" + (a*b));
+
+        System.out.println("division=" + (a/b));
+
+        System.out.println("modulus=" + (a%b));
+
+
+        //unary
+
+        int p=5;
+         p++;
+        System.out.println(p);
+        int d=100;
+        --d;
+        System.out.println(d);
+        int i=5;
+        ++i;
+        System.out.println(i);
+        int r=100;
+        --r;
+        System.out.println(r);
+        int x = 5;
+        System.out.println(x++); // Output: 5  (আগে প্রিন্ট, পরে বাড়ে)
+        System.out.println(x);   // Output: 6
+
+
+
+
+
+
+
+    }
+}
+
+
+
+//relational operator
+
+
+import java.util.Scanner;
+
+public class relationaloperator {
+    static void main(String[] args) {
+        Scanner check= new Scanner(System.in);
+        System.out.print("enter a number:");
+        int a=check.nextInt();
+
+        System.out.print("enter a number:");
+        int b=check.nextInt();
+        if(a>b)
+        {
+            System.out.print(a +"greater than"+ b);
+
+
+        }
+        else if(a<b)
+        {
+            System.out.print(a +"less  than"+ b);
+
+        }
+        else if(a==b)
+        {
+            System.out.print(a +"equal"+ b);
+
+        }
+        else if(a!=b)
+        {
+            System.out.print(a +"not equal to"+ b);
+
+        }
+
+
+    }
+}
+
+
