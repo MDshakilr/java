@@ -1,0 +1,17 @@
+public class Student {  //design class
+    public String name;
+    public int id;//public int id=100;
+
+    public static void main(String[] args) {
+        System.out.println("welcome");
+        Student student1=new Student();//objet1
+        student1.name="shakil";
+        System.out.println(student1.name);
+        student1.id=23;
+        System.out.println(student1.id);
+        Student student2=new Student();//object2
+        student2.name="rafi";
+        student1=student2;//referenceing copy betweem to object
+        System.out.println(student1.name);
+    }
+}
