@@ -68,7 +68,7 @@ public class Student {
         public static void main(String[] args) {
             Student s1 = new Student("shakil", 3, "b+", "c");
             s1.print_details();
-            s1.id = 45;
+            s1.id = 45;//aita Student class i mine same class er viotei tay error hoi ni...jodhi main class ta onno class er vito thakto tahole noton get/set method nia kaj kora lagto 
             s1.print_details();
 
 
