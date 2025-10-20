@@ -1,0 +1,31 @@
+public class Student {
+    public String name;
+     int id;
+    protected String blood_group;
+    private String section;
+
+    public Student(String x,int y,String b,String s){
+        System.out.println("welcome");
+        this.name=x;
+        this.id=y;
+        this.blood_group=b;
+        this.section=s;
+    }
+
+
+public void print_details()
+{
+    System.out.println(name);
+    System.out.println(id);
+    System.out.println(blood_group);
+    System.out.println(section);
+
+}
+     public static void main(String[] args) {
+        Student s1=new Student("shakil",3,"b+","c");
+      s1.print_details();
+
+
+
+    }
+}
