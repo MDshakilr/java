@@ -29,3 +29,50 @@ public void print_details()
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+public class Student {
+    public String name;
+    private int id;
+    public String blood_group;
+    public String section;
+
+    public Student(String x, int y, String b, String s) {
+        System.out.println("welcome");
+        this.name = x;
+        this.id = y;
+        this.blood_group = b;
+        this.section = s;
+    }
+
+
+    public void print_details() {
+        System.out.println(name);
+        System.out.println(id);
+        System.out.println(blood_group);
+        System.out.println(section);
+
+    }
+
+
+        public static void main(String[] args) {
+            Student s1 = new Student("shakil", 3, "b+", "c");
+            s1.print_details();
+            s1.id = 45;
+            s1.print_details();
+
+
+        }
+    }
+
+
