@@ -1,0 +1,26 @@
+public class Dog {
+    public String name="doggi";
+    public int id;
+
+    public void x(String name)
+    {
+this.name=name;
+        System.out.println(name);
+
+    }
+    public void x(String name,int id)//method overloaading
+    {
+        this.name=name;
+        this.id=id;
+        System.out.println(name+" "+id);
+
+}
+        public  static void main(String[] args) {
+        Dog d1= new Dog();
+        d1.x("dog");
+        d1.x("bog",34);
+
+
+
+    }
+}
