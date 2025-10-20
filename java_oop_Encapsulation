@@ -1,0 +1,106 @@
+/*
+public class Student {
+    public String name;
+    private int id;
+
+
+    // Setter method (private field change করার জন্য)
+    public void setId(int newId) {
+        this.id = newId;
+    }
+
+    // Getter method (private field পড়ার জন্য)
+    public int getId() {
+        return id;
+    }
+}
+
+
+public class hi {
+    public static void main(String[] args) {
+        Student s1 = new Student();
+
+
+        // Setter দিয়ে id পরিবর্তন
+        s1.setId(45);
+
+
+        // Getter দিয়ে id দেখা
+        System.out.println("Updated ID: " + s1.getId());
+    }
+}
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class Student {
+    public String name;
+    private int id;
+    public String blood_group;
+    public String section;
+
+    public Student(String x, int y, String b, String s) {
+        System.out.println("welcome");
+        this.name = x;
+        this.id = y;
+        this.blood_group = b;
+        this.section = s;
+    }
+
+    // Setter method (private field change করার জন্য)
+    public void setId(int newId) {
+        this.id = newId;
+    }
+
+    // Getter method (private field পড়ার জন্য)
+    public int getId() {
+        return id;
+    }
+
+    public void print_details() {
+        System.out.println(name);
+        System.out.println(id);
+        System.out.println(blood_group);
+        System.out.println(section);
+        System.out.println("------------------");
+    }
+}
+
+public class hi {
+    public static void main(String[] args) {
+        Student s1 = new Student("shakil", 3, "b+", "c");
+        s1.print_details();
+
+        // Setter দিয়ে id পরিবর্তন
+        s1.setId(45);
+        s1.print_details();
+
+        // Getter দিয়ে id দেখা
+        System.out.println("Updated ID: " + s1.getId());
+    }
+}
