@@ -1,0 +1,34 @@
+public class criket {
+    public int run;
+    public static int teamRun;
+
+
+    public void run()
+    {
+        run+=4;
+        teamRun+=4;
+
+    }
+    public void run_1()
+    {
+        run+=6;
+        teamRun+=6;
+
+    }
+
+     public static void main(String[] args) {
+
+        criket sakil=new criket();
+        sakil.run();
+        System.out.println(sakil.run);
+
+        criket tamim=new criket();
+        tamim.run_1();
+         System.out.println(tamim.run);
+
+
+         System.out.println(teamRun);
+
+     }
+
+}
