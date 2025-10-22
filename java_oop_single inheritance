@@ -1,0 +1,22 @@
+
+
+class Bigdog {
+    public void call() {
+        System.out.println("Geo Geo");
+    }
+}
+
+// smalldog inherits Bigdog
+class Smalldog extends Bigdog {
+    void eat() {
+        System.out.println("Animals can eat");
+    }
+}
+
+public class hi {
+    public static void main(String[] args) {
+        Smalldog d = new Smalldog();
+        d.eat();   // child class method
+        d.call();  // parent class method (inherited)
+    }
+}
