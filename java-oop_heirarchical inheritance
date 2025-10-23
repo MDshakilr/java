@@ -1,0 +1,98 @@
+// 🌼 Parent class
+class Animal {
+    String name = "Animal";
+
+    // Constructor
+    Animal() {
+        System.out.println("Animal constructor called");
+    }
+
+    // Method
+    void eat() {
+        System.out.println(name + " can eat.");
+    }
+}
+
+// 🐶 Child class 1
+class Dog extends Animal {
+    String breed = "German Shepherd";
+
+    // Constructor
+    Dog() {
+        super(); // parent constructor call করছে
+        System.out.println("Dog constructor called");
+    }
+
+    // Method
+    void bark() {
+        System.out.println("Dog is barking.");
+    }
+
+    // Override parent method
+    void eat() {
+        System.out.println("Dog eats bones.");
+        super.eat(); // parent method call
+    }
+}
+
+// 🐱 Child class 2
+class Cat extends Animal {
+    String color = "White";
+
+    // Constructor
+    Cat() {
+        super();
+        System.out.println("Cat constructor called");
+    }
+
+    void meow() {
+        System.out.println("Cat says meow.");
+    }
+
+    void eat() {
+        System.out.println("Cat drinks milk.");
+        super.eat();
+    }
+}
+
+// 🐮 Child class 3
+class Cow extends Animal {
+    String type = "Domestic Cow";
+
+    Cow() {
+        super();
+        System.out.println("Cow constructor called");
+    }
+
+    void moo() {
+        System.out.println("Cow says moo.");
+    }
+
+    void eat() {
+        System.out.println("Cow eats grass.");
+        super.eat();
+    }
+}
+
+// 🧠 Main class
+public class hello{
+    public static void main(String[] args) {
+        System.out.println("\n--- Dog Object ---");
+        Dog d = new Dog();
+        System.out.println("Breed: " + d.breed);
+        d.eat();
+        d.bark();
+
+        System.out.println("\n--- Cat Object ---");
+        Cat c = new Cat();
+        System.out.println("Color: " + c.color);
+        c.eat();
+        c.meow();
+
+        System.out.println("\n--- Cow Object ---");
+        Cow cw = new Cow();
+        System.out.println("Type: " + cw.type);
+        cw.eat();
+        cw.moo();
+    }
+}
