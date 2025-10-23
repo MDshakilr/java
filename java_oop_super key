@@ -1,0 +1,92 @@
+class animal{
+    public String name;
+    public animal()
+    {
+        System.out.print("hi");
+
+    }
+}
+
+class dog extends animal{
+/*
+aikhane defualt vabe animal class er constructor call kora ace..
+super key use kora hobde
+1 er odhik constructor thakle je kono akta deafult hobe
+r oi kane super key er vitor variable likte hobe
+
+ */
+}
+
+
+
+public class hello {
+    public static void main(String[] args) {
+        dog d1=new dog();
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Animal {
+    String color = "White";
+
+    void eat() {
+        System.out.println("Animal is eating...");
+    }
+
+    Animal() {
+        System.out.println("Animal constructor called");
+    }
+}
+
+class Dog extends Animal {
+    String color = "Black";
+
+    /*Dog() {
+        super(); // parent class constructor call করছে
+        System.out.println("Dog constructor called");
+    }
+
+
+*/
+    void printColor() {
+        System.out.println("Dog color: " + color);        // current class color
+        System.out.println("Animal color: " + super.color); // parent class color
+    }
+
+    void eat() {
+        System.out.println("Dog is eating...");
+        super.eat(); // parent class method call করছে
+    }
+}
+
+public class hello {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.printColor();
+        d.eat();
+    }
+}
+
+
+
+
+
+
+
