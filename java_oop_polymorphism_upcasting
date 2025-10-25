@@ -1,0 +1,42 @@
+class Animal {
+    public void makaesound() {
+        System.out.println("dak");
+
+    }
+}
+class Dog extends Animal {
+    public void makaesound() {
+        System.out.println("geo");
+
+    }
+   
+}
+    class  Cat extends Animal {
+        public void makaesound() {
+            System.out.println("meo");
+
+        }
+    }
+
+
+
+public class hi {
+
+public static void display(Animal a)
+{
+    a.makaesound();//upcasting
+
+
+
+}
+    public static void main(String[] args) {
+        Animal s1 = new Animal();
+        Dog d1 = new Dog();
+        Cat c1 = new Cat();
+
+
+        display(d1);
+        display(c1);
+
+    }
+}
