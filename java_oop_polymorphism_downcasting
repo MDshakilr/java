@@ -1,0 +1,61 @@
+class Animal {
+    public void makaesound() {
+        System.out.println("dak");
+
+    }
+}
+class Dog extends Animal {
+    public void makaesound() {
+        System.out.println("geo");
+
+    }
+    public void bark() {
+        System.out.println("bak");
+
+    }
+}
+    class  Cat extends Animal {
+        public void makaesound() {
+            System.out.println("meo");
+
+        }
+    }
+
+
+
+public class hi {
+
+public static void display(Animal a)
+{    Dog d=(Dog)a; //downcasting
+    d.makaesound();
+    d.bark();
+
+    /*
+    if(a instanceof Dog)
+    {
+    Dog d=(Dog)a;
+    d.makaesound();
+    d.bark();
+    }
+    else (a instanceof cat)
+    {
+    a.makesound();
+
+    }
+     */
+}
+    public static void main(String[] args) {
+        Animal s1 = new Animal();
+        Dog d1 = new Dog();
+        Cat c1 = new Cat();
+
+
+        display(d1);
+
+        System.out.println(d1 instanceof Dog);
+        System.out.println(d1 instanceof Animal);
+       // System.out.println(d1 instanceof Cat);
+       // display(c1);hobe na jokhon else kaj korbe toktn hobe
+
+    }
+}
