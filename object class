@@ -1,0 +1,54 @@
+ধাপ ১: Object Class কী?
+
+Java তে সব ক্লাসের “root” বা মূল ক্লাস হচ্ছে Object।
+মানে, প্রত্যেকটা ক্লাস সরাসরি বা পরোক্ষভাবে Object ক্লাস থেকে extends করে।
+
+👉 উদাহরণ:
+
+class A { }     // আসলে extends Object
+class B extends A { }
+
+
+এখানে A আর B— দুজনেই Object এর subclass।
+
+
+তুমি কি বলতে পারো — Object ক্লাসের কিছু important method এর নাম কী কী?
+(ইঙ্গিত: equals(), clone(), toString() — এরকম কিছু)
+
+
+String s1 = new String("Hello");
+String s2 = new String("Hello");
+
+System.out.println(s1 == s2);      // false (কারণ আলাদা object)
+System.out.println(s1.equals(s2)); // true  (কারণ value একই)
+== দেখে identity (same object কিনা)
+👉 equals() দেখে equivalence (value এক কিনা)
+
+
+
+ 
+clone() ব্যবহার হয় একটা object-এর কপি তৈরি করতে।
+মানে — নতুন object তৈরি হবে, যার মান (value) আগেরটার মতো হবে।
+
+কিন্তু একটা গুরুত্বপূর্ণ বিষয় 👉
+Java-তে যদি তুমি শুধু = দিয়ে assign করো, তাহলে সেটা copy না, শুধু reference কপি হয়।
+
+
+IntegerStack first = new IntegerStack(2);
+IntegerStack second = first; // ❌ এটা copy না, শুধু reference
+
+এখন second আর first দুটোই একই object কে নির্দেশ করছে।
+২️⃣ clone() ব্যবহার করতে হলে
+
+তোমার class-কে অবশ্যই Cloneable interface implement করতে হবে।
+
+public class IntegerStack implements Cloneable {
+    private int[] buffer;
+    private int top;
+
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone(); // shallow copy
+    }
+}
+
+
