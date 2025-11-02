@@ -162,3 +162,126 @@ System.out.println(s1.hashCode());    // একই number
 System.out.println(s2.hashCode());    // একই number
 
 
+
+
+// File name: Test.java
+
+// Base class
+class Animal {
+    String name;
+    int age;
+
+    // Constructor
+    Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Custom toString() override
+    @Override
+    public String toString() {
+        return "Animal[name=" + name + ", age=" + age + "]";
+    }
+}
+
+// Main class
+public class Test {
+    public static void main(String[] args) {
+        Animal a = new Animal("Tiger", 5);
+
+        // toString() explicitly call
+        System.out.println(a.toString());
+
+        // toString() implicitly call (same as above)
+        System.out.println(a);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// File name: TestAnimal.java
+package t; // package declaration
+
+// Animal class implements Cloneable for clone() support
+class Animal implements Cloneable {
+    String name;
+    int age;
+
+    // Constructor
+    Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Override toString() → readable string
+    @Override
+    public String toString() {
+        return "Animal[name=" + name + ", age=" + age + "]";
+    }
+
+    // Override equals() → value-based comparison
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;              // same reference
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Animal other = (Animal) obj;
+        return this.name.equals(other.name) && this.age == other.age;
+    }
+
+    // Override hashCode() → consistent with equals()
+    @Override
+    public int hashCode() {
+        return name.hashCode() + age * 31; // simple hash formula
+    }
+
+    // Override clone() → deep copy
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone(); // no reference-type fields here, so shallow is fine
+    }
+}
+
+// Main class
+public class TestAnimal {
+    public static void main(String[] args) throws CloneNotSupportedException {
+        Animal a1 = new Animal("Tiger", 5);
+        Animal a2 = new Animal("Tiger", 5);
+
+        // toString()
+        System.out.println("a1: " + a1); // automatically calls toString()
+        System.out.println("a2: " + a2);
+
+        // equals()
+        System.out.println("a1 equals a2? " + a1.equals(a2));
+
+        // hashCode()
+        System.out.println("a1 hashCode: " + a1.hashCode());
+        System.out.println("a2 hashCode: " + a2.hashCode());
+
+        // getClass()
+        System.out.println("a1 class: " + a1.getClass());
+        System.out.println("a1 class name: " + a1.getClass().getName());
+        System.out.println("a1 simple name: " + a1.getClass().getSimpleName());
+
+        // clone()
+        Animal a3 = (Animal) a1.clone();
+        System.out.println("a3 (clone of a1): " + a3);
+        System.out.println("a1 == a3? " + (a1 == a3)); // reference check
+        System.out.println("a1.equals(a3)? " + a1.equals(a3)); // value check
+    }
+}
+
+
