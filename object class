@@ -129,5 +129,36 @@ s1 new top: 30
 s2 top still: 10
 
 
+১️⃣ hashCode() কী?
+
+প্রতিটি Java object এর একটা integer number থাকে, যাকে বলা হয় hash code।
+
+এটা মূলত object কে uniquely represent করার জন্য ব্যবহৃত হয়, বিশেষ করে HashMap, HashSet, ইত্যাদিতে।
+২️⃣ Default behavior (Object class)
+
+যদি তুমি নিজে hashCode() override না করো, তাহলে Object class এর default hashCode() return করে object এর memory address এর উপর ভিত্তি করে number।
+
+মানে, দুইটি আলাদা object, যদিও value একই, default hashCode ভিন্ন হতে পারে।
+class Point {
+    int x, y;
+    Point(int x, int y) { this.x = x; this.y = y; }
+}
+
+Point p1 = new Point(1,2);
+Point p2 = new Point(1,2);
+
+System.out.println(p1.hashCode()); // e.g., 12345678
+System.out.println(p2.hashCode()); // e.g., 87654321 (ভিন্ন)
+৩️⃣ Rule between equals() and hashCode()
+
+যদি two objects equals() অনুযায়ী সমান হয়, তাহলে তাদের hashCode() ও সমান হতে হবে।
+
+কিন্তু hashCode সমান হলেও, equals() false হতে পারে।
+String s1 = new String("Hello");
+String s2 = new String("Hello");
+
+System.out.println(s1.equals(s2));    // true
+System.out.println(s1.hashCode());    // একই number
+System.out.println(s2.hashCode());    // একই number
 
 
