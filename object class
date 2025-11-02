@@ -52,3 +52,82 @@ public class IntegerStack implements Cloneable {
 }
 
 
+
+a code for full colne() 
+// File name: IntegerStack.java
+public class IntegerStack implements Cloneable {
+    private int[] buffer; // stack data রাখার array
+    private int top;      // stack এর উপরের index
+
+    // constructor
+    public IntegerStack(int size) {
+        buffer = new int[size];
+        top = -1; // stack খালি শুরুতে
+    }
+
+    // push method
+    public void push(int value) {
+        buffer[++top] = value;
+    }
+
+    // pop method
+    public int pop() {
+        return buffer[top--];
+    }
+
+    // peek method (optional, শুধু উপরের element দেখার জন্য)
+    public int peek() {
+        return buffer[top];
+    }
+
+    // size method
+    public int size() {
+        return top + 1;
+    }
+
+    // deep clone method
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        IntegerStack copy = (IntegerStack) super.clone(); // shallow copy
+        copy.buffer = buffer.clone(); // নতুন array তৈরি করে deep copy
+        return copy;
+    }
+}
+
+
+// File name: TestIntegerStack.java
+public class TestIntegerStack {
+    public static void main(String[] args) throws CloneNotSupportedException {
+        // মূল stack তৈরি
+        IntegerStack s1 = new IntegerStack(2);
+        s1.push(10);
+        s1.push(20);
+
+        // s1 থেকে clone করা
+        IntegerStack s2 = (IntegerStack) s1.clone();
+
+        // দেখাই s1 এবং s2 আলাদা কি না
+        System.out.println("s1 top element: " + s1.pop()); // 20
+        System.out.println("s2 top element: " + s2.pop()); // 20
+
+        // s1 আর s2 এর size দেখাই
+        System.out.println("s1 size: " + s1.size()); // 1
+        System.out.println("s2 size: " + s2.size()); // 1
+
+        // এখন s1 আর s2 একই array share করছে না, deep copy হয়েছে
+        s1.push(30);
+        System.out.println("s1 new top: " + s1.peek()); // 30
+        System.out.println("s2 top still: " + s2.peek()); // এখানে 10
+    }
+}
+output:
+s1 top element: 20
+s2 top element: 20
+s1 size: 1
+s2 size: 1
+s1 new top: 30
+s2 top still: 10
+
+
+
+
