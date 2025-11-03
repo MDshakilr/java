@@ -1,0 +1,110 @@
+// String Class Full Example (without StringBuffer)
+// Covers all methods from your slide
+
+public class StringMethodsDemo {
+    public static void main(String[] args) {
+
+        // ====== String Creation ======
+        String s1 = "Welcome";
+        String s2 = new String("Welcome");
+        char charArray[] = {'b', 'i', 'r', 't', 'h', ' ', 'd', 'a', 'y'};
+        byte byteArray[] = {(byte)'n',(byte)'e',(byte)'w',(byte)' ','y','e','a','r'};
+
+        String s3 = new String(charArray);           // from char array
+        String s4 = new String(charArray, 6, 3);     // partial char array
+        String s5 = new String(byteArray);           // from byte array
+        String s6 = new String(byteArray, 4, 4);     // partial byte array
+
+        System.out.println("=== String Creation ===");
+        System.out.println("s1: " + s1);
+        System.out.println("s3: " + s3);
+        System.out.println("s4: " + s4);
+        System.out.println("s5: " + s5);
+        System.out.println("s6: " + s6);
+
+        // ====== length, charAt, getChars ======
+        char[] chars = new char[5];
+        s1.getChars(0, 5, chars, 0); // copy first 5 chars
+
+        System.out.println("\n=== Basic Methods ===");
+        System.out.println("Length of s1: " + s1.length());
+        System.out.println("Character at index 1: " + s1.charAt(1));
+        System.out.print("getChars(0,5): ");
+        for (char c : chars)
+            System.out.print(c);
+        System.out.println();
+
+        // ====== String Comparison Methods ======
+        String s7 = "hello";
+        String s8 = "Hello";
+
+        System.out.println("\n=== String Comparisons ===");
+        System.out.println("equals: " + s7.equals(s8));
+        System.out.println("equalsIgnoreCase: " + s7.equalsIgnoreCase(s8));
+        System.out.println("compareTo: " + s7.compareTo(s8));
+        System.out.println("regionMatches: " + s7.regionMatches(true, 0, s8, 0, 3));
+
+        // ====== Substring and Concatenation ======
+        String letters = "Happy Birthday";
+        System.out.println("\n=== Substring & Concatenation ===");
+        System.out.println("substring(7): " + letters.substring(7));
+        System.out.println("substring(0,5): " + letters.substring(0,5));
+        System.out.println("concat: " + "Happy ".concat("Birthday"));
+
+        // ====== Conversions and Replacements ======
+        String test = "   java programming   ";
+        System.out.println("\n=== Conversion & Replacement ===");
+        System.out.println("Original: '" + test + "'");
+        System.out.println("Trimmed: '" + test.trim() + "'");
+        System.out.println("Uppercase: " + test.toUpperCase());
+        System.out.println("Lowercase: " + test.toLowerCase());
+        System.out.println("Replace a->o: " + test.replace('a','o'));
+
+        // ====== Converting Numbers and Strings ======
+        int num = 123;
+        String strNum = String.valueOf(num); // int to String
+        System.out.println("\n=== Conversion Between Types ===");
+        System.out.println("int to String: " + strNum);
+
+        String numString = "456";
+        int n = Integer.parseInt(numString); // String to int
+        System.out.println("String to int: " + n);
+    }
+}
+
+
+=== String Creation ===
+s1: Welcome
+s3: birth day
+s4: day
+s5: new year
+s6: year
+
+=== Basic Methods ===
+Length of s1: 7
+Character at index 1: e
+getChars(0,5): Welco
+
+=== String Comparisons ===
+equals: false
+equalsIgnoreCase: true
+compareTo: 32
+regionMatches: true
+
+=== Substring & Concatenation ===
+substring(7): irthday
+substring(0,5): Happy
+concat: Happy Birthday
+
+=== Conversion & Replacement ===
+Original: '   java programming   '
+Trimmed: 'java programming'
+Uppercase:    JAVA PROGRAMMING   
+Lowercase:    java programming   
+Replace a->o:    jovo progromming   
+
+=== Conversion Between Types ===
+int to String: 123
+String to int: 456
+
+
