@@ -177,6 +177,15 @@ public class StringBufferFullExample {
         // =========================
         System.out.println("Length: " + sb3.length());
         System.out.println("Capacity: " + sb3.capacity());
+
+
+//Mnemonic for StringBuffer Capacity:
+
+//Default: 16 + initial string length
+
+///Length < capacity → capacity একই থাকে
+
+//Length > capacity → newCapacity = old*2 + 2
     }
 }
 
