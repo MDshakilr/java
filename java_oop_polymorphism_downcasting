@@ -59,3 +59,64 @@ public static void display(Animal a)
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+// Parent class
+class Employee {
+    String name;
+
+    Employee(String name) {
+        this.name = name;
+    }
+
+    public void display() {
+        System.out.println("Employee Name: " + name);
+    }
+}
+
+// Child class
+class PTEmployee extends Employee {
+    int percent;
+
+    PTEmployee(String name, int percent) {
+        super(name);       // call parent constructor
+        this.percent = percent;
+    }
+
+    // Child-specific method
+    public void setPercent(int percent) {
+        this.percent = percent;
+    }
+
+    // Overriding parent method
+    @Override
+    public void display() {
+        System.out.println("PTEmployee Name: " + name + ", Percent: " + percent);
+    }
+}
+
+// Main class
+public class TestUpcasting {
+    public static void main(String[] args) {
+        // Upcasting: PTEmployee object assigned to Employee reference
+        Employee em = new PTEmployee("Mary", 50);
+
+        em.display();  // Runtime polymorphism → calls PTEmployee's display()
+
+        // em.setPercent(70); // ❌ Not allowed: Employee type cannot see PTEmployee-specific method
+
+        // Downcasting to access child-specific method
+        PTEmployee pt = (PTEmployee) em;
+        pt.setPercent(70);
+
+        pt.display(); // PTEmployee Name: Mary, Percent: 70
+    }
+}
