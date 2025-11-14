@@ -201,3 +201,51 @@ After replace: Hello C++2025
 After reverse: 5202++C olleH
 Length: 13
 Capacity: 21
+
+
+
+
+import java.util.StringTokenizer;
+
+public class TestToken {
+    public static void main(String[] args) {
+        String s1 = "Hello World Java";
+        String s2 = "apple,banana,orange";
+        String s3 = "cat;dog;mouse";
+
+        // Constructor 1: default delimiter (space)
+        StringTokenizer st1 = new StringTokenizer(s1);
+
+        // Constructor 2: custom delimiter (,)
+        StringTokenizer st2 = new StringTokenizer(s2, ",");
+
+        // Constructor 3: custom delimiter (;) এবং delimiters ও return করবে
+        StringTokenizer st3 = new StringTokenizer(s3, ";", true);
+
+        // Using methods with st1
+        System.out.println("Using st1:");
+        while (st1.hasMoreTokens()) {
+            System.out.println(st1.nextToken());
+        }
+
+        // Using methods with st2
+        System.out.println("\nUsing st2:");
+        while (st2.hasMoreTokens()) {
+            System.out.println(st2.nextToken());
+        }
+
+        // Using methods with st3
+        System.out.println("\nUsing st3:");
+        while (st3.hasMoreTokens()) {
+            System.out.println(st3.nextToken());
+        }
+    }
+}
+
+
+
+
+
+
+
+
