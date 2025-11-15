@@ -1,0 +1,321 @@
+// Fig. 8.1: Time1.java
+// Time1 class definition maintains the time in 24-hour format.
+
+import java.text.DecimalFormat;
+
+public class Time1 extends Object {
+
+    private int hour;   // 0 - 23
+    private int minute; // 0 - 59
+    private int second; // 0 - 59
+
+    // Time1 constructor initializes each instance variable
+    // to zero. Ensures that each Time1 object starts in a consistent state.
+    public Time1() {
+        setTime(0, 0, 0);
+    }
+
+    // Set a new time value using universal time. 
+    // Perform validity checks on the data.
+    // Set invalid values to zero.
+    public void setTime(int h, int m, int s) {
+        hour   = ((h >= 0 && h < 24) ? h : 0);
+        minute = ((m >= 0 && m < 60) ? m : 0);
+        second = ((s >= 0 && s < 60) ? s : 0);
+    }
+
+    // Convert to String in universal-time format (HH:MM:SS)
+    public String toUniversalString() {
+        DecimalFormat twoDigits = new DecimalFormat("00");
+        return twoDigits.format(hour) + ":" +
+               twoDigits.format(minute) + ":" +
+               twoDigits.format(second);
+    }
+
+    // Convert to String in standard-time format (H:MM:SS AM/PM)
+    @Override
+    public String toString() {
+        DecimalFormat twoDigits = new DecimalFormat("00");
+
+        return ((hour == 12 || hour == 0) ? 12 : hour % 12) + ":" +
+                twoDigits.format(minute) + ":" +
+                twoDigits.format(second) +
+                (hour < 12 ? " AM" : " PM");
+    }
+}
+
+// Fig. 8.2: TimeTest1.java
+// Class TimeTest1 to exercise class Time1
+
+import javax.swing.JOptionPane;
+
+public class TimeTest1 {
+
+    // create Time1 object and manipulate it
+    public static void main(String args[]) {
+        
+        Time1 time = new Time1(); // calls Time1 constructor
+
+        // append String version of time to String output
+        String output = "The initial universal time is: " +
+                        time.toUniversalString() +
+                        "\nThe initial standard time is: " +
+                        time.toString() +
+                        "\nImplicit toString() call: " + time;
+
+        // change time and append String version of time to output
+        time.setTime(13, 27, 6);
+        output += "\n\nUniversal time after setTime is: " +
+                  time.toUniversalString() +
+                  "\nStandard time after setTime is: " +
+                  time.toString();
+
+        // use invalid values to change time and append String
+        time.setTime(99, 99, 99);
+        output += "\n\nAfter attempting invalid settings: " +
+                  "\nUniversal time: " + time.toUniversalString() +
+                  "\nStandard time: " + time.toString();
+
+        JOptionPane.showMessageDialog(null, output,
+                "Testing Class Time1",
+                JOptionPane.INFORMATION_MESSAGE);
+
+        System.exit(0);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Fig. 8.8: Time3.java
+// Time3 class definition with set and get methods
+
+package com.deitel.jhtp4.ch08;
+
+// Java core packages
+import java.text.DecimalFormat;
+
+public class Time3 extends Object {
+
+    private int hour;   // 0 - 23
+    private int minute; // 0 - 59
+    private int second; // 0 - 59
+
+    // Default constructor — all zero
+    public Time3() {
+        setTime(0, 0, 0);
+    }
+
+    // Constructor: hour only
+    public Time3(int h) {
+        setTime(h, 0, 0);
+    }
+
+    // Constructor: hour + minute
+    public Time3(int h, int m) {
+        setTime(h, m, 0);
+    }
+
+    // Constructor: hour + minute + second
+    public Time3(int h, int m, int s) {
+        setTime(h, m, s);
+    }
+
+    // Constructor: copy from another Time3 object
+    public Time3(Time3 time) {
+        setTime(time.getHour(), time.getMinute(), time.getSecond());
+    }
+
+    // Set entire time at once
+    public void setTime(int h, int m, int s) {
+        setHour(h);
+        setMinute(m);
+        setSecond(s);
+    }
+
+    // Set Hour
+    public void setHour(int h) {
+        hour = ((h >= 0 && h < 24) ? h : 0);
+    }
+
+    // Set Minute
+    public void setMinute(int m) {
+        minute = ((m >= 0 && m < 60) ? m : 0);
+    }
+
+    // Set Second
+    public void setSecond(int s) {
+        second = ((s >= 0 && s < 60) ? s : 0);
+    }
+
+    // Get Methods
+    public int getHour() {
+        return hour;
+    }
+
+    public int getMinute() {
+        return minute;
+    }
+
+    public int getSecond() {
+        return second;
+    }
+
+    // Convert to universal-time format (HH:MM:SS)
+    public String toUniversalString() {
+        DecimalFormat twoDigits = new DecimalFormat("00");
+
+        return twoDigits.format(getHour()) + ":" +
+               twoDigits.format(getMinute()) + ":" +
+               twoDigits.format(getSecond());
+    }
+
+    // Convert to standard-time format (HH:MM:SS AM/PM)
+    public String toString() {
+        DecimalFormat twoDigits = new DecimalFormat("00");
+
+        return ((getHour() == 12 || getHour() == 0) ? 12 : getHour() % 12)
+                + ":" + twoDigits.format(getMinute())
+                + ":" + twoDigits.format(getSecond())
+                + (getHour() < 12 ? " AM" : " PM");
+    }
+
+} // end class Time3
+
+
+
+
+
+   // Fig. 8.9: TimeTest5.java
+// Demonstrating the Time3 class set and get methods.
+
+import java.awt.*;
+import java.awt.event.*;
+
+// Java extension packages
+import javax.swing.*;
+
+// Deitel packages
+import com.deitel.jhtp4.ch08.Time3;
+
+public class TimeTest5 extends JApplet implements ActionListener {
+
+    private Time3 time; 
+    private JLabel hourLabel, minuteLabel, secondLabel;
+    private JTextField hourField, minuteField, secondField, displayField;
+    private JButton tickButton;
+
+    public void init() {
+
+        time = new Time3(); // create Time3 object
+
+        Container container = getContentPane();
+        container.setLayout(new FlowLayout());
+
+        // Hour input
+        hourLabel = new JLabel("Set Hour");
+        hourField = new JTextField(10);
+        hourField.addActionListener(this);
+        container.add(hourLabel);
+        container.add(hourField);
+
+        // Minute input
+        minuteLabel = new JLabel("Set Minute");
+        minuteField = new JTextField(10);
+        minuteField.addActionListener(this);
+        container.add(minuteLabel);
+        container.add(minuteField);
+
+        // Second input
+        secondLabel = new JLabel("Set Second");
+        secondField = new JTextField(10);
+        secondField.addActionListener(this);
+        container.add(secondLabel);
+        container.add(secondField);
+
+        // Display text field
+        displayField = new JTextField(30);
+        displayField.setEditable(false);
+        container.add(displayField);
+
+        // Button to add 1 second
+        tickButton = new JButton("Add 1 to Second");
+        tickButton.addActionListener(this);
+        container.add(tickButton);
+
+        updateDisplay();
+    }
+
+    // Handle events
+    public void actionPerformed(ActionEvent actionEvent) {
+
+        if (actionEvent.getSource() == tickButton)
+            tick();
+
+        else if (actionEvent.getSource() == hourField) {
+            time.setHour(Integer.parseInt(actionEvent.getActionCommand()));
+            hourField.setText("");
+        }
+
+        else if (actionEvent.getSource() == minuteField) {
+            time.setMinute(Integer.parseInt(actionEvent.getActionCommand()));
+            minuteField.setText("");
+        }
+
+        else if (actionEvent.getSource() == secondField) {
+            time.setSecond(Integer.parseInt(actionEvent.getActionCommand()));
+            secondField.setText("");
+        }
+
+        updateDisplay();
+    }
+
+    // Update text fields
+    public void updateDisplay() {
+        displayField.setText(
+            "Hour: " + time.getHour() +
+            "; Minute: " + time.getMinute() +
+            "; Second: " + time.getSecond()
+        );
+
+        showStatus(
+            "Standard time: " + time.toString() +
+            "; Universal time: " + time.toUniversalString()
+        );
+    }
+
+    // Add one second
+    public void tick() {
+
+        time.setSecond((time.getSecond() + 1) % 60);
+
+        if (time.getSecond() == 0) {
+            time.setMinute((time.getMinute() + 1) % 60);
+
+            if (time.getMinute() == 0)
+                time.setHour((time.getHour() + 1) % 24);
+        }
+    }
+
+} // end class TimeTest5
