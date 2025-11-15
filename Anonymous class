@@ -1,0 +1,18 @@
+interface Greeting {
+    void sayHello();
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Anonymous class
+        Greeting g = new Greeting() {
+            @Override
+            public void sayHello() {
+                System.out.println("Hello from anonymous class!");
+            }
+        };
+
+        g.sayHello();  // method call
+    }
+}
